@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Registretion form</title>
+        <style>
+            body{
+                width: 100vw;
+                background-color: #e8edef;
+            }
+         .container
+            {
+                background-color: pink;
+                text-align: center;
+              border: 2px solid #ff6b6b;
+              border-radius: 16px;
+              padding: 33px;
+            margin: 33px auto;
+             width: 370px;
+            height: 550px
+            }
+            .form-group
+            {
+                text-align: left;
+            position: relative;
+            width: 300px;
+            margin: 30px;
+            }
+            .form-group input{
+                margin-left: 1px;
+            width: 100%;
+            height: 20px;
+            border-radius: 10px;
+            height: 30px;
+        }
+            div{
+                width: 100vw;
+              height: 50px;
+            }
+            
+            #City{
+                width: 290px;
+                margin-right: 20px;
+            border-radius: 10px;
+            height: 30px;
+        }
+        
+        #City:hover{
+            background: palevioletred;
+        }
+        #btn{
+            margin-top:10px;
+            margin-left: 180px ;
+            width: 120px;
+            border-radius:10px;
+            height: 30px;
+        }
+
+        #btn:hover
+        {
+            background-color: palevioletred;
+        }
+
+
+        
+        </style>
+
+</head>
+<body>
+    <div class="container">
+        <h2>Registretion form</h2>
+        <form method="" action="LoginPage.html" name="reg_form" onsubmit="return validateForm()">
+
+            <div class="form-group">
+                <label for="Name">Name</label>
+                <input type="Name" name="name">
+                    
+            </div>
+
+            <div class="form-group">
+                <label for="">Username</label>
+                <input type="Usrename" name="Username" >
+                
+            </div>
+
+            <div class="form-group">
+                <label for="">Password</label>
+                <input type="password" name="password" >
+                
+            </div>
+
+
+            <div class="form-group">
+                <label for="">mobile number</label>
+                <input type="mobile number" name="mobile_number">
+                
+            </div>
+
+            <div class="form-group">
+                <label for="">email id</label> 
+                <input type="email id" name="email">
+                 
+            </div>
+
+            <label  for="City">City  </label >
+            
+           <select id="City" name="City">
+            <option value="Indore">Indore</option>
+              <option value="Bhopal">Bhopal</option>
+            <option value="Delhi">Delhi</option>
+            </select>
+  
+<br>
+          
+            <input id="btn" type="submit" value="submit" >
+       
+        </form>
+
+    </div>
+
+<script>
+    function validateForm() {
+      var nameInput = document.forms["reg_form"]["name"].value;
+      var Username = document.forms["reg_form"]["Username"].value;
+      var password = document.forms["reg_form"]["password"].value;
+      var mobile_number = document.forms["reg_form"]["mobile_number"].value;
+      var email = document.forms["reg_form"]["email"].value;
+
+    if (nameInput=="") {
+        alert("*please enter name");
+        return false;
+    }
+    if(nameInput.length<3)
+    {
+        alert("* Name must be at least 3 characters");
+        return false;
+    }
+    if(nameInput.length>20)
+    {
+        alert("* Name is too long");
+        return false;
+    }
+    if (Username=="") {
+        alert("*please enter Username");
+        return false;
+    }
+    let correct_username =/^[A-Za-z]+$/;
+    if(!correct_username.test(Username)){
+        alert("only alphabets are allowed");
+        return false;
+    }
+    if( password ==""){
+        alert("please enter password")
+        return false;
+    }
+    if(password.length<6)
+    {
+        alert("*password must be at least 6 characters");
+        return false;
+    }
+    if(mobile_number.length !==10)
+    {
+        alert("Mobile number must be 10 digits");
+        return false;
+    }
+    if(email==""){
+        alert("please enter email")
+        return false;
+    }
+    let mailformat = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+    if (!mailformat.test(email))
+    {
+        alert("* Invalid email format");
+        return false;
+    }
+    return true;
+    }
+
+</script>
+</body>
+</html>
